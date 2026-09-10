@@ -1,6 +1,8 @@
 # Tally
 > 2026 - Fumec - Desenvolvimento Mobile: Projeto Integração
+> FRONTEND
 
-Gerenciador de cartões de fidelidade virtuais
+App gerenciador de cartões de fidelidade virtuais.
+
 
 
