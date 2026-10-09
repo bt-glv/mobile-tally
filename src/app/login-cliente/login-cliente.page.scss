@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.login-cliente-content {
+  --background: url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 38vh);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 64px);
+  padding-left: 28px;
+  padding-right: 28px;
+  box-sizing: border-box;
+}
+
+.brand-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-family: var(--ion-font-family);
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #050b14;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 345px;
+  margin: 0 auto;
+}
+
+.google-button {
+  --background: #1b6cfc;
+  --color: #ffffff;
+  --border-radius: 9999px;
+  --box-shadow: none;
+  height: 48px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+
+  ion-icon {
+    font-size: 1.25rem;
+    margin-inline-end: 8px;
+  }
+}
+
+.seller-button {
+  --background: #d4d7dd;
+  --color: #2b333e;
+  --border-radius: 9999px;
+  --box-shadow: none;
+  height: 48px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+
+  ion-icon {
+    font-size: 1.3rem;
+    margin-inline-end: 8px;
+    color: #2b333e;
+  }
+}
