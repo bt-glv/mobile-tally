@@ -1,0 +1,15 @@
+// barra "flutuante" como no Figma
+ion-tab-bar {
+  --border: none;
+  --background: var(--ion-card-background, #fff);
+  height: 56px;
+  margin: 0 20px calc(env(safe-area-inset-bottom, 0px) + 12px);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 22%);
+  contain: none;
+}
+
+ion-tab-button {
+  --color-selected: var(--ion-color-primary);
+  font-size: 0.65rem;
+}

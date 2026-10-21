@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true" class="login-vendedor-content">
+  <form class="login-container" [formGroup]="form" (ngSubmit)="entrar()">
+    <div class="brand-section">
+      <h1 class="app-title">Tally</h1>
+    </div>
+
+    <div class="form-section">
+      <ion-input
+        class="campo"
+        type="email"
+        formControlName="email"
+        placeholder="Digite seu email"
+        autocomplete="email"
+        aria-label="E-mail"
+      >
+        <ion-icon slot="start" name="at" aria-hidden="true"></ion-icon>
+      </ion-input>
+
+      <ion-input
+        class="campo"
+        type="password"
+        formControlName="senha"
+        placeholder="Digite sua senha"
+        autocomplete="current-password"
+        aria-label="Senha"
+      >
+        <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+
+      <ion-button class="esqueceu" fill="clear" size="small" type="button" (click)="esqueceuSenha()">
+        Esqueceu a senha?
+      </ion-button>
+
+      <ion-button expand="block" class="login-button" type="submit">Login</ion-button>
+
+      <ion-button expand="block" class="client-button" type="button" (click)="voltarParaCliente()">
+        <ion-icon name="cart-outline" slot="start"></ion-icon>
+        Sou Cliente
+      </ion-button>
+
+      <p class="cadastro">
+        Ainda não possui uma conta?
+        <ion-button fill="clear" size="small" type="button" (click)="cadastrar()">Cadastre-se</ion-button>
+      </p>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+// a borda tracejada do Figma tem traços bem mais longos que o border: dashed padrão
+.moldura {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect width='100%25' height='100%25' rx='26' ry='26' fill='none' stroke='black' stroke-width='8' stroke-dasharray='20 12'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  line-height: 0;
+}
+
+qrcode {
+  display: block;
+  padding: 0;
+  background: #fff;
+}

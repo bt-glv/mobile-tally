@@ -1,0 +1,18 @@
+<div class="popup">
+  <ion-button class="fechar" fill="clear" color="dark" aria-label="Fechar" (click)="fechar()">
+    <ion-icon slot="icon-only" name="close"></ion-icon>
+  </ion-button>
+
+  <ion-thumbnail class="logo">
+    <img [src]="cartao.loja.logo" [alt]="'Logo ' + cartao.loja.nome" />
+  </ion-thumbnail>
+
+  <h2 class="loja">{{ cartao.loja.nome }}</h2>
+
+  @if (completo) {
+    <app-qr-moldura [conteudo]="qrCupom" [tamanho]="170"></app-qr-moldura>
+  } @else {
+    <p class="contagem">{{ cartao.pontos }}/{{ cartao.loja.meta }}</p>
+    <app-pontos-grid [pontos]="cartao.pontos" [meta]="cartao.loja.meta"></app-pontos-grid>
+  }
+</div>

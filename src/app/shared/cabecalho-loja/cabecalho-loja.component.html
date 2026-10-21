@@ -1,0 +1,19 @@
+@if (loja(); as loja) {
+  <header>
+    <div class="banner" [style.background-image]="'url(' + loja.banner + ')'">
+      <ion-button fill="clear" color="dark" aria-label="Sair" (click)="sair()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="identidade">
+      <ion-avatar>
+        <img [src]="loja.logo" [alt]="'Logo ' + loja.nome" />
+      </ion-avatar>
+      <h1>{{ loja.nome }}</h1>
+      <ion-button fill="clear" size="small" color="medium" aria-label="Editar nome da loja" (click)="editarNome()">
+        <ion-icon slot="icon-only" name="pencil"></ion-icon>
+      </ion-button>
+    </div>
+  </header>
+}

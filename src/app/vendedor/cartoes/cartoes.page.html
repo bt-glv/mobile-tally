@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <app-cabecalho-loja></app-cabecalho-loja>
+
+  <ion-list lines="full" class="lista">
+    @for (cartao of recentes(); track cartao.id) {
+      <ion-item [routerLink]="['/vendedor/cartao', cartao.id]" detail="false">
+        <ion-label>
+          <h3>{{ cartao.cliente.nome }}</h3>
+          <p>{{ cartao.pontos }}/{{ cartao.loja.meta }}</p>
+        </ion-label>
+      </ion-item>
+    } @empty {
+      <ion-item lines="none">
+        <ion-label class="ion-text-center" color="medium">Nenhum cartão ativo ainda.</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+
+  @if (temMais()) {
+    <div class="ver-mais">
+      <ion-button fill="clear" size="small" routerLink="/vendedor/cartoes-ativos">Ver mais</ion-button>
+    </div>
+  }
+</ion-content>

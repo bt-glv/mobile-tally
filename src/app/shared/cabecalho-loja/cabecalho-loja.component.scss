@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.banner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: calc(env(safe-area-inset-top, 0px) + 120px);
+  padding-top: env(safe-area-inset-top, 0px);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 2px solid var(--ion-color-step-850, #262626);
+}
+
+.identidade {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  margin-top: -36px;
+
+  ion-avatar {
+    --border-radius: 50%;
+    flex: none;
+    width: 76px;
+    height: 76px;
+    border: 3px solid var(--ion-background-color, #fff);
+    background: var(--ion-background-color, #fff);
+    overflow: hidden;
+  }
+
+  h1 {
+    margin: 36px 0 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  ion-button {
+    margin-top: 36px;
+  }
+}

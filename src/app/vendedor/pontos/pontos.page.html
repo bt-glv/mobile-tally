@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <app-cabecalho-loja></app-cabecalho-loja>
+
+  <section class="leitor">
+    <h2>Ler QR Code</h2>
+
+    <div class="camera">
+      <video #video playsinline muted></video>
+      <div class="mira"></div>
+
+      @if (semCamera()) {
+        <div class="sem-camera">
+          <ion-icon name="videocam-off-outline"></ion-icon>
+          <p>Câmera indisponível</p>
+        </div>
+      }
+    </div>
+
+    <ion-button fill="clear" size="small" (click)="digitarCodigo()">
+      <ion-icon slot="start" name="keypad-outline"></ion-icon>
+      Digitar código
+    </ion-button>
+  </section>
+</ion-content>

@@ -1,0 +1,63 @@
+.pagina {
+  padding: 0 8px calc(env(safe-area-inset-bottom, 0px) + 24px);
+}
+
+.topo {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: env(safe-area-inset-top, 0px);
+  min-height: 48px;
+}
+
+.nome-cliente {
+  margin: 4px 16px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+ion-card-content {
+  color: var(--ion-text-color);
+}
+
+.card-qr ion-card-content {
+  padding: 24px 16px 16px;
+  text-align: center;
+}
+
+.legenda {
+  margin: 14px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-loja ion-card-content {
+  padding: 16px;
+}
+
+.loja {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+
+  ion-thumbnail {
+    --size: 56px;
+    --border-radius: 12px;
+  }
+}
+
+.loja-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+
+  span {
+    font-size: 0.75rem;
+    color: var(--ion-color-medium);
+  }
+}
