@@ -1,6 +1,6 @@
 import { Cartao, Cliente, Dados, Loja, RegistroLog, Vendedor } from '../models';
 
-const LOGO = 'assets/placeholders/logo-loja.svg';
+const LOGO = 'assets/placeholders/logo-verdemar.svg';
 const BANNER = 'assets/placeholders/banner-loja.svg';
 
 const clientes: Cliente[] = [
@@ -14,9 +14,9 @@ const clientes: Cliente[] = [
 ];
 
 const lojas: Loja[] = [
-  { id: 'L-01', nome: 'Verdemar', logo: 'assets/placeholders/logo-loja.svg', banner: 'assets/placeholders/banner-loja.svg', meta: 10 },
-  { id: 'L-02', nome: 'Café do Porto', logo: 'assets/placeholders/logo-cafe.svg', banner: 'assets/placeholders/banner-cafe.svg', meta: 10 },
-  { id: 'L-03', nome: 'Mercadinho Bom Preço', logo: 'assets/placeholders/logo-mercado.svg', banner: 'assets/placeholders/banner-loja.svg', meta: 10 },
+  { id: 'L-01', nome: 'Verdemar', logo: 'assets/placeholders/logo-verdemar.svg', banner: 'assets/placeholders/banner-loja.svg', meta: 10 },
+  { id: 'L-02', nome: 'Café do Porto', logo: 'assets/placeholders/logo-cafe.png', banner: 'assets/placeholders/banner-cafe.svg', meta: 10 },
+  { id: 'L-03', nome: 'Frutos de Goiás', logo: 'assets/placeholders/logo-frutos.png', banner: 'assets/placeholders/banner-loja.svg', meta: 10 },
 ];
 
 const vendedores: Vendedor[] = [
