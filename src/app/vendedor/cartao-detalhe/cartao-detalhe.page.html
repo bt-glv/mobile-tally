@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/vendedor/cartoes" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (cartao(); as cartao) {
+    <div class="centro">
+      <ion-card>
+        <ion-card-content>
+          <dl>
+            <dt>Nome:</dt>
+            <dd>{{ cartao.cliente.nome }}</dd>
+
+            <dt>Criado:</dt>
+            <dd>{{ cartao.criadoEm | date: 'dd/MM/yyyy' }}</dd>
+
+            <dt>Último ponto:</dt>
+            <dd>{{ cartao.ultimoPontoEm ? (cartao.ultimoPontoEm | date: 'dd/MM/yyyy') : '-' }}</dd>
+
+            <dt>Pontos:</dt>
+            <dd>{{ cartao.pontos }}/{{ cartao.loja.meta }}</dd>
+
+            <dt>Log:</dt>
+            <dd>
+              @for (registro of cartao.log; track registro.data) {
+                <span class="registro">
+                  {{ registro.data | date: 'yyyyMMdd HH:mm' }}
+                  {{ registro.tipo === 'ponto' ? '+1 ponto' : 'cupom utilizado' }}
+                </span>
+              } @empty {
+                <span class="registro">Sem registros</span>
+              }
+            </dd>
+          </dl>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  } @else {
+    <p class="ion-text-center ion-padding">Cartão não encontrado.</p>
+  }
+</ion-content>

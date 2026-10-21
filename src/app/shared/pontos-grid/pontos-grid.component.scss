@@ -1,0 +1,16 @@
+.grade {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 12px;
+  justify-items: center;
+}
+
+ion-icon {
+  font-size: 1.5rem;
+  color: var(--ion-text-color);
+  opacity: 0.18;
+
+  &.marcado {
+    opacity: 1;
+  }
+}

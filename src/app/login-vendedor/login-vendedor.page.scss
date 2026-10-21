@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.login-vendedor-content {
+  --background: url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 38vh);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+  padding-left: 28px;
+  padding-right: 28px;
+  box-sizing: border-box;
+}
+
+.brand-section {
+  display: flex;
+  justify-content: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #050b14;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 345px;
+  margin: 24px auto 0;
+}
+
+.campo {
+  --background: #ffffff;
+  --color: #050b14;
+  --placeholder-color: #8a8f98;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  min-height: 44px;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 0.85rem;
+
+  ion-icon {
+    margin-inline-end: 10px;
+    color: #050b14;
+  }
+}
+
+.esqueceu {
+  --color: #2b333e;
+  align-self: flex-end;
+  margin: -6px 0 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.login-button,
+.client-button {
+  --border-radius: 9999px;
+  --box-shadow: none;
+  height: 44px;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.login-button {
+  --background: #1b6cfc;
+  --color: #ffffff;
+}
+
+.client-button {
+  --background: #d4d7dd;
+  --color: #2b333e;
+  width: 70%;
+  align-self: center;
+
+  ion-icon {
+    margin-inline-end: 8px;
+  }
+}
+
+.cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  color: #2b333e;
+
+  ion-button {
+    --color: #050b14;
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}

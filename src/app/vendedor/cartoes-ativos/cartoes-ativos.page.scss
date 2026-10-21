@@ -1,0 +1,26 @@
+ion-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.lista {
+  padding: 8px 8px 0;
+}
+
+ion-item h3 {
+  font-size: 0.85rem;
+}
+
+ion-item p {
+  font-size: 0.75rem;
+}
+
+ion-footer {
+  background: var(--ion-background-color, #fff);
+}
+
+ion-searchbar {
+  --box-shadow: none;
+  --background: var(--ion-background-color, #fff);
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+}

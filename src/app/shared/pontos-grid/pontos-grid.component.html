@@ -1,0 +1,5 @@
+<div class="grade" role="img" [attr.aria-label]="pontos() + ' de ' + meta() + ' pontos'">
+  @for (marcado of casas(); track $index) {
+    <ion-icon name="cart" [class.marcado]="marcado"></ion-icon>
+  }
+</div>

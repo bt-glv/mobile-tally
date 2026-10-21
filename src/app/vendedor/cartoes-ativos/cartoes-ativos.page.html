@@ -1,0 +1,29 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/vendedor/cartoes" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cartões Ativos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full" class="lista">
+    @for (cartao of cartoes(); track cartao.id) {
+      <ion-item [routerLink]="['/vendedor/cartao', cartao.id]" detail="false">
+        <ion-label>
+          <h3>{{ cartao.cliente.nome }}</h3>
+          <p>{{ cartao.pontos }}/{{ cartao.loja.meta }}</p>
+        </ion-label>
+      </ion-item>
+    } @empty {
+      <ion-item lines="none">
+        <ion-label class="ion-text-center" color="medium">Nenhum cartão encontrado.</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-searchbar placeholder="Buscar" [debounce]="150" (ionInput)="filtrar($event)"></ion-searchbar>
+</ion-footer>

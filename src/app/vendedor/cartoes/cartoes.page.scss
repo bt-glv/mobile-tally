@@ -1,0 +1,24 @@
+.lista {
+  margin-top: 24px;
+  padding: 0 8px;
+}
+
+ion-item h3 {
+  font-size: 0.85rem;
+}
+
+ion-item p {
+  font-size: 0.75rem;
+}
+
+.ver-mais {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+
+  ion-button {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+}

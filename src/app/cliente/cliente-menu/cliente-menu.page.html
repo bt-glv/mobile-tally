@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  <div class="pagina">
+    <div class="topo">
+      <ion-button fill="clear" color="medium" aria-label="Sair" (click)="sair()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <h1 class="nome-cliente">{{ cliente()?.nome }}</h1>
+
+    <ion-card class="card-qr">
+      <ion-card-content>
+        <app-qr-moldura [conteudo]="qrCliente()" [tamanho]="190"></app-qr-moldura>
+        <p class="legenda">Client ID {{ cliente()?.id }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    @for (cartao of cartoes(); track cartao.id) {
+      <ion-card class="card-loja" button (click)="abrirCartao(cartao)">
+        <ion-card-content>
+          <div class="loja">
+            <ion-thumbnail>
+              <img [src]="cartao.loja.logo" [alt]="'Logo ' + cartao.loja.nome" />
+            </ion-thumbnail>
+            <div class="loja-info">
+              <strong>{{ cartao.loja.nome }}</strong>
+              <span>{{ cartao.pontos }}/{{ cartao.loja.meta }}</span>
+            </div>
+          </div>
+          <app-pontos-grid [pontos]="cartao.pontos" [meta]="cartao.loja.meta"></app-pontos-grid>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
+</ion-content>
