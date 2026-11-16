@@ -1,13 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { addIcons } from 'ionicons';
-import { logoGoogle, storefront } from 'ionicons/icons';
-import { SessaoService } from '../core/services/sessao.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, IonButton, IonIcon } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { logoGoogle, storefront } from 'ionicons/icons';
-import { Firebase } from '../services/firebase';
+import { Firebase } from '../core/services/firebase';
 
 @Component({
     selector: 'app-login-cliente',
@@ -28,8 +24,8 @@ export class LoginClientePage implements OnInit {
 
         if(is_loogged == false) return
 
-        console.log("> User already logged in, redirecting to home")
-        this.router.navigateByUrl('home/')
+        console.log("> User already logged in, redirecting to cliente-menu")
+        this.router.navigateByUrl('cliente/')
     }
 
     async login_google() {
