@@ -1,6 +1,7 @@
 environment.ts
 notas/
-
+*.session
+*.vim
 
 temp-*
 environment.ts
