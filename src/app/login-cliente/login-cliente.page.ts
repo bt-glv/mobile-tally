@@ -52,6 +52,13 @@ export class LoginClientePage implements OnInit {
     }
 
     /**
+     * Navigates to the seller login page.
+     */
+    irParaLoginVendedor(): void {
+        this.navController.navigateForward('/login-vendedor');
+    }
+
+    /**
      * Activates the mock customer session so mock cards and QR data load, then navigates to `/cliente`.
      */
     private enterClienteMenu(): void {
