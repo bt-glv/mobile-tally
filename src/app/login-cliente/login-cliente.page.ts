@@ -1,10 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { IonContent, IonButton, IonIcon, NavController } from '@ionic/angular';
+import { IonButton, IonContent, IonIcon, NavController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { logoGoogle, storefront } from 'ionicons/icons';
 import { Firebase } from '../core/services/firebase';
+import { SessaoService } from '../core/services/sessao.service';
 
+/**
+ * Customer login page backed by Firebase Google authentication and mock session initialization.
+ */
 @Component({
     selector: 'app-login-cliente',
     templateUrl: './login-cliente.page.html',
@@ -12,35 +15,47 @@ import { Firebase } from '../core/services/firebase';
     imports: [IonContent, IonButton, IonIcon],
 })
 export class LoginClientePage implements OnInit {
+    private readonly firebaseService = inject(Firebase);
+    private readonly sessaoService   = inject(SessaoService);
+    private readonly navController   = inject(NavController);
 
-    constructor() { addIcons({ logoGoogle, storefront }); }
-    private router           = inject(Router)
-    private firebase_service = inject(Firebase)
-    private nav_controller         = inject(NavController)
-
-    async ngOnInit() {
-        console.log("# login-cliente initialized")
-        const is_loogged = await this.firebase_service.isLoggedIn()
-        console.log("user looged in: "+is_loogged)
-
-        if(is_loogged == false) return
-
-        console.log("> User already logged in, redirecting to cliente-menu")
-
-        this.nav_controller.navigateRoot("/cliente")
+    constructor() {
+        addIcons({ logoGoogle, storefront });
     }
 
-    async login_google() {
+    /**
+     * Checks whether a Firebase user is already signed in and redirects to the customer menu.
+     */
+    async ngOnInit(): Promise<void> {
+        const isLoggedIn = await this.firebaseService.isLoggedIn();
+        if (!isLoggedIn) {
+            return;
+        }
 
+        this.enterClienteMenu();
+    }
+
+    /**
+     * Authenticates the customer with Google via Firebase and initializes the mock customer session.
+     */
+    async login_google(): Promise<void> {
         try {
-            const user = await this.firebase_service.loginWithGoogle()
-            if(!user) { return }
-            console.log("Logged in as: ", user.displayName, user.email)
-            this.nav_controller.navigateRoot("/cliente")
+            const user = await this.firebaseService.loginWithGoogle();
+            if (!user) {
+                return;
+            }
 
+            this.enterClienteMenu();
         } catch (error) {
-            console.log("# Login failed\n## Error\n", error)
+            console.error('Login failed', error);
         }
     }
 
+    /**
+     * Activates the mock customer session so mock cards and QR data load, then navigates to `/cliente`.
+     */
+    private enterClienteMenu(): void {
+        this.sessaoService.entrarComGoogle();
+        this.navController.navigateRoot('/cliente');
+    }
 }
