@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonContent, IonButton, IonIcon } from '@ionic/angular';
+import { IonContent, IonButton, IonIcon, NavController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { logoGoogle, storefront } from 'ionicons/icons';
 import { Firebase } from '../core/services/firebase';
@@ -16,6 +16,7 @@ export class LoginClientePage implements OnInit {
     constructor() { addIcons({ logoGoogle, storefront }); }
     private router           = inject(Router)
     private firebase_service = inject(Firebase)
+    private nav_controller         = inject(NavController)
 
     async ngOnInit() {
         console.log("# login-cliente initialized")
@@ -25,7 +26,8 @@ export class LoginClientePage implements OnInit {
         if(is_loogged == false) return
 
         console.log("> User already logged in, redirecting to cliente-menu")
-        this.router.navigateByUrl('cliente/')
+
+        this.nav_controller.navigateRoot("/cliente")
     }
 
     async login_google() {
@@ -34,7 +36,7 @@ export class LoginClientePage implements OnInit {
             const user = await this.firebase_service.loginWithGoogle()
             if(!user) { return }
             console.log("Logged in as: ", user.displayName, user.email)
-            await this.router.navigateByUrl('/home')
+            this.nav_controller.navigateRoot("/cliente")
 
         } catch (error) {
             console.log("# Login failed\n## Error\n", error)
