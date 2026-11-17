@@ -1,54 +1,104 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import {
+    createUserWithEmailAndPassword,
     getAuth,
     GoogleAuthProvider,
-    signInWithPopup,
-    signInWithCredential,
-    signOut,
     onAuthStateChanged,
-    User
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    User,
 } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
-@Injectable({ providedIn: 'root'})
+/**
+ * Provides Firebase App, Auth, and Firestore instances along with authentication helper methods.
+ */
+@Injectable({ providedIn: 'root' })
 export class Firebase {
 
-    readonly app  = initializeApp(environment.firebase);
+    readonly app = initializeApp(environment.firebase);
     readonly auth = getAuth(this.app);
-    readonly db   = getFirestore(this.app);
+    readonly db = getFirestore(this.app);
 
+    /** Reactive stream emitting the currently authenticated Firebase user or `null` when signed out. */
     readonly user$ = new Observable<User | null>((subscriber) => {
         return onAuthStateChanged(this.auth, (user) => subscriber.next(user));
     });
 
+    /**
+     * Signs in a user using the Google OAuth popup flow.
+     *
+     * @returns The authenticated `User`, or `null` if unavailable.
+     */
     async loginWithGoogle(): Promise<User | null> {
-            const provider       = new GoogleAuthProvider();
-            const userCredential = await signInWithPopup(this.auth, provider);
-            return userCredential.user;
+        const provider = new GoogleAuthProvider();
+        const userCredential = await signInWithPopup(this.auth, provider);
+        return userCredential.user;
     }
 
+    /**
+     * Signs in an existing user with email and password credentials.
+     *
+     * @param email - User email address (trimmed before authentication).
+     * @param password - User account password.
+     * @returns The authenticated `User`, or `null` if unavailable.
+     */
+    async loginWithEmail(email: string, password: string): Promise<User | null> {
+        const userCredential = await signInWithEmailAndPassword(this.auth, email.trim(), password);
+        return userCredential.user;
+    }
+
+    /**
+     * Creates a new user account with email and password credentials.
+     *
+     * @param email - Email address for the new account (trimmed before registration).
+     * @param password - Password for the new account.
+     * @returns The newly created `User`, or `null` if unavailable.
+     */
+    async registerWithEmail(email: string, password: string): Promise<User | null> {
+        const userCredential = await createUserWithEmailAndPassword(this.auth, email.trim(), password);
+        return userCredential.user;
+    }
+
+    /**
+     * Sends a password reset email to the specified account address.
+     *
+     * @param email - Target user email address (trimmed before sending).
+     */
+    async resetPassword(email: string): Promise<void> {
+        await sendPasswordResetEmail(this.auth, email.trim());
+    }
+
+    /**
+     * Signs out the currently authenticated user.
+     */
     async logout(): Promise<void> {
         await signOut(this.auth);
     }
 
-    // Usar dentro de "Route Guards" ou ao recarregar a página
+    /**
+     * Waits for Firebase Auth initialization and checks if a user is currently signed in.
+     * Use in route guards or on page reload.
+     *
+     * @returns `true` if a user is signed in, otherwise `false`.
+     */
     async isLoggedIn(): Promise<boolean> {
         await this.auth.authStateReady();
         return this.auth.currentUser !== null;
     }
 
-    // Usar quando o app já estivar inicializado
+    /**
+     * Synchronously checks if a user is currently signed in.
+     * Use only after the application and Firebase Auth have finished initializing.
+     *
+     * @returns `true` if `auth.currentUser` is non-null, otherwise `false`.
+     */
     isLoggedInSync(): boolean {
         return this.auth.currentUser !== null;
     }
-
-
-
-
-
-
-
 }
