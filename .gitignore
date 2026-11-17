@@ -5,6 +5,7 @@ notas/
 
 temp-*
 environment.ts
+environment.prod.ts
 
 *~
 *.sw[mnpcod]
