@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { clienteGuard, vendedorGuard } from './core/guards/sessao.guard';
+import { clienteGuard, vendedorGuard } from './routing/guards/sessao.guard';
 
 export const routes: Routes = [
     {
@@ -9,42 +9,42 @@ export const routes: Routes = [
     },
     {
         path: 'login-cliente',
-        loadComponent: () => import('./login-cliente/login-cliente.page').then((m) => m.LoginClientePage),
+        loadComponent: () => import('./screens/login-cliente/login-cliente.page').then((m) => m.LoginClientePage),
     },
     {
         path: 'login-vendedor',
-        loadComponent: () => import('./login-vendedor/login-vendedor.page').then((m) => m.LoginVendedorPage),
+        loadComponent: () => import('./screens/login-vendedor/login-vendedor.page').then((m) => m.LoginVendedorPage),
     },
     {
         path: 'cliente',
         canActivate: [clienteGuard],
-        loadComponent: () => import('./cliente/cliente-menu/cliente-menu.page').then((m) => m.ClienteMenuPage),
+        loadComponent: () => import('./screens/cliente/cliente-menu/cliente-menu.page').then((m) => m.ClienteMenuPage),
     },
     // telas do vendedor que ficam fora das abas (precisam vir antes do 'vendedor' das abas)
     {
         path: 'vendedor/cartoes-ativos',
         canActivate: [vendedorGuard],
         loadComponent: () =>
-            import('./vendedor/cartoes-ativos/cartoes-ativos.page').then((m) => m.CartoesAtivosPage),
+            import('./components/cartoes-ativos/cartoes-ativos.page').then((m) => m.CartoesAtivosPage),
     },
     {
         path: 'vendedor/cartao/:id',
         canActivate: [vendedorGuard],
         loadComponent: () =>
-            import('./vendedor/cartao-detalhe/cartao-detalhe.page').then((m) => m.CartaoDetalhePage),
+            import('./components/cartao-detalhe/cartao-detalhe.page').then((m) => m.CartaoDetalhePage),
     },
     {
         path: 'vendedor',
         canActivate: [vendedorGuard],
-        loadComponent: () => import('./vendedor/tabs/vendedor-tabs.page').then((m) => m.VendedorTabsPage),
+        loadComponent: () => import('./components/tabs/vendedor-tabs.page').then((m) => m.VendedorTabsPage),
         children: [
             {
                 path: 'cartoes',
-                loadComponent: () => import('./vendedor/cartoes/cartoes.page').then((m) => m.CartoesPage),
+                loadComponent: () => import('./screens/vendedor/cartoes/cartoes.page').then((m) => m.CartoesPage),
             },
             {
                 path: 'pontos',
-                loadComponent: () => import('./vendedor/pontos/pontos.page').then((m) => m.PontosPage),
+                loadComponent: () => import('./screens/vendedor/pontos/pontos.page').then((m) => m.PontosPage),
             },
             {
                 path: '',
