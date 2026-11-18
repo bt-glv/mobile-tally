@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { BancoMock } from '../aux/mock/banco-mock';
-import { Sessao } from '../model/models';
+import { Sessao } from '../model/mock-models';
 
 const CHAVE = 'tally:sessao';
 

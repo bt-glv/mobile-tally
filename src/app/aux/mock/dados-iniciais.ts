@@ -1,4 +1,4 @@
-import { Cartao, Cliente, Dados, Loja, RegistroLog, Vendedor } from '../../model/models';
+import { Cartao, Cliente, Dados, Loja, RegistroLog, Vendedor } from '../../model/mock-models';
 
 const LOGO = 'assets/placeholders/logo-verdemar.svg';
 const BANNER = 'assets/placeholders/banner-loja.svg';

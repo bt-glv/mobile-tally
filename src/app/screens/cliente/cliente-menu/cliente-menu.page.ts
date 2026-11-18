@@ -4,7 +4,7 @@ import { IonButton, IonCard, IonCardContent, IonContent, IonIcon, IonThumbnail, 
 import { addIcons } from 'ionicons';
 import { logOutOutline } from 'ionicons/icons';
 import { interval } from 'rxjs';
-import { CartaoDetalhado } from '../../../model/models';
+import { CartaoDetalhado } from '../../../model/mock-models';
 import { VALIDADE_QR_CLIENTE, montarQrCliente } from '../../../aux/qr/qr-conteudo';
 import { CartaoService } from '../../../services/cartao.service';
 import { Firebase } from '../../../services/firebase';

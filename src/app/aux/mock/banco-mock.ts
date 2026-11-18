@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Dados } from '../../model/models';
+import { Dados } from '../../model/mock-models';
 import { DADOS_INICIAIS } from './dados-iniciais';
 
 const CHAVE = 'tally:banco-mock';

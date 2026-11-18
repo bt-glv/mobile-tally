@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { BancoMock } from '../aux/mock/banco-mock';
-import { Cartao, CartaoDetalhado, Cliente, Dados } from '../model/models';
+import { Cartao, CartaoDetalhado, Cliente, Dados } from '../model/mock-models';
 
 export type ResultadoPonto =
 | { ok: true; cartao: CartaoDetalhado }

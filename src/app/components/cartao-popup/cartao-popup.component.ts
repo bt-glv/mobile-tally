@@ -2,7 +2,7 @@ import { Component, Input, OnInit, inject } from '@angular/core';
 import { IonButton, IonIcon, IonThumbnail, ModalController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { close } from 'ionicons/icons';
-import { CartaoDetalhado } from '../../model/models';
+import { CartaoDetalhado } from '../../model/mock-models';
 import { montarQrCupom } from '../../aux/qr/qr-conteudo';
 import { CartaoService } from '../../services/cartao.service';
 import { PontosGridComponent } from '../pontos-grid/pontos-grid.component';
