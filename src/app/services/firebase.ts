@@ -15,6 +15,7 @@ import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Client, clientConverter } from '../model/Client';
+import { Store, storeConverter } from '../model/Store';
 
 /**
  * Provides Firebase App, Auth, and Firestore instances along with authentication helper methods.
@@ -41,7 +42,7 @@ export class Firebase {
         const userCredential = await signInWithPopup(this.auth, provider);
 
         if(userCredential.user) {
-            await this.ensureClientProfile(userCredential.user)
+            await this.getCliente(userCredential.user)
         }
 
         return userCredential.user;
@@ -56,6 +57,11 @@ export class Firebase {
      */
     async loginWithEmail(email: string, password: string): Promise<User | null> {
         const userCredential = await signInWithEmailAndPassword(this.auth, email.trim(), password);
+
+        if (userCredential.user) {
+            await this.getStore(userCredential.user);
+        }
+
         return userCredential.user;
     }
 
@@ -108,7 +114,10 @@ export class Firebase {
         return this.auth.currentUser !== null;
     }
 
-    async ensureClientProfile(
+    /**
+     * Returns the client object and, if it does not exists for the current client, create it.
+    */
+    async getCliente(
         user: User,
         customName?: string
     ): Promise<Client> {
@@ -130,5 +139,41 @@ export class Firebase {
 
         await setDoc(clientRef, newClient);
         return newClient;
+    }
+
+    /**
+     * Fetches the store document for the given authenticated user from Firestore,
+     * creating a default store document if none exists yet.
+     *
+     * @param user - Authenticated Firebase user representing the store owner.
+     * @param customName - Optional custom display name for the store on initial creation.
+     * @param rewardDescription - Optional reward description for the store on initial creation.
+     * @returns The existing or newly created `Store` instance.
+     */
+    async getStore(
+        user: User,
+        customName?: string,
+        rewardDescription?: string
+    ): Promise<Store> {
+        /** Default number of points required to complete a loyalty card for newly created stores. */
+        const DEFAULT_POINTS_REQUIRED = 3;
+
+        const storeRef = doc(this.db, 'stores', user.uid).withConverter(storeConverter);
+        const snapshot = await getDoc(storeRef);
+
+        if (snapshot.exists()) {
+            return snapshot.data();
+        }
+
+        const newStore = new Store(
+            user.uid,
+            customName ?? user.displayName ?? 'Store',
+            DEFAULT_POINTS_REQUIRED,
+            rewardDescription ?? '',
+            new Date()
+        );
+
+        await setDoc(storeRef, newStore);
+        return newStore;
     }
 }
