@@ -41,9 +41,7 @@ export class LoginClientePage implements OnInit {
     async login_google(): Promise<void> {
         try {
             const user = await this.firebaseService.loginWithGoogle();
-            if (!user) {
-                return;
-            }
+            if (!user) { return; }
 
             this.enterClienteMenu();
         } catch (error) {
