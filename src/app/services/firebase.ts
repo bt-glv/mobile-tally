@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import {
     createUserWithEmailAndPassword,
@@ -9,13 +9,30 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    Unsubscribe,
     User,
 } from 'firebase/auth';
-import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { doc, DocumentReference, Firestore, getDoc, getFirestore, onSnapshot, setDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Client, clientConverter } from '../model/Client';
 import { Store, storeConverter } from '../model/Store';
+
+
+/**
+ * Handle returned by `syncDocument` containing reactive state, the Firestore document reference,
+ * and stream lifecycle controls.
+ */
+export interface DocumentSync<T> {
+    /** Reactive signal holding the latest converted model instance (or null if missing/loading) */
+    data: WritableSignal<T | null>;
+    /** Firestore document reference being observed */
+    docRef: DocumentReference<T>;
+    /** Raw Unsubscribe handle returned by onSnapshot */
+    connection: Unsubscribe;
+    /** Safe cleanup method to close the stream (call in ionViewDidLeave) */
+    unsubscribe: () => void;
+}
 
 /**
  * Provides Firebase App, Auth, and Firestore instances along with authentication helper methods.
@@ -176,4 +193,43 @@ export class Firebase {
         await setDoc(storeRef, newStore);
         return newStore;
     }
+
+    /**
+     * Subscribes to real-time updates for a Firestore document and exposes the converted value as a signal.
+     *
+     * @param docRef - Typed Firestore `DocumentReference` to observe.
+     * @param _db - Optional Firestore instance (unused; retained for signature compatibility).
+     * @returns A `DocumentSync<T>` handle with the reactive signal, document reference, and cleanup controls.
+     */
+    public syncDocument<T>(
+        docRef: DocumentReference<T>,
+        _db?  : Firestore
+    ): DocumentSync<T> {
+
+        const data = signal<T | null>(null);
+        let closed = false;
+
+        const connection = onSnapshot(
+            docRef,
+            // snapshot.data() automatically invokes your converter's fromFirestore()
+            (snapshot) => { data.set(snapshot.exists() ? snapshot.data() : null); },
+            (error)    => { console.error('Firestore sync error:', error); }
+        );
+
+        const unsubscribe = (): void => {
+            if (!closed) {
+                connection();
+                closed = true;
+            }
+        };
+
+        return {
+            data,
+            docRef,
+            connection,
+            unsubscribe,
+        };
+    }
 }
+
+
