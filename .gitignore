@@ -77,5 +77,6 @@ testem.log
 Thumbs.db
 
 
-# iOS stuff
+# Native Capacitor platforms
 /ios
+/android
