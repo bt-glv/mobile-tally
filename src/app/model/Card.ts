@@ -9,35 +9,35 @@ import {
 export type CardStatus = "incomplete" | "complete" | "claimed";
 
 interface CardData {
-    storeId?: string;
-    clientId?: string;
-    storeName?: string;
+    storeId?          : string;
+    clientId?         : string;
+    storeName?        : string;
     rewardDescription?: string;
-    clientName?: string;
-    currentPoints?: number;
-    maxPoints?: number;
-    status?: CardStatus;
-    pointHistory?: Array<Timestamp | string | number>;
-    createdAt?: Timestamp | string | number;
-    updatedAt?: Timestamp | string | number;
-    claimedAt?: Timestamp | string | number | null;
+    clientName?       : string;
+    currentPoints?    : number;
+    maxPoints?        : number;
+    status?           : CardStatus;
+    pointHistory?     : Array<Timestamp | string | number>;
+    createdAt?        : Timestamp | string | number;
+    updatedAt?        : Timestamp | string | number;
+    claimedAt?        : Timestamp | string | number | null;
 }
 
 export class Card {
     constructor(
-        public id: string,
-        public storeId: string,
-        public clientId: string,
-        public storeName: string,
+        public id               : string,
+        public storeId          : string,
+        public clientId         : string,
+        public storeName        : string,
         public rewardDescription: string,
-        public clientName: string,
-        public currentPoints: number = 0,
-        public maxPoints: number = 10,
-        public status: CardStatus = "incomplete",
-        public pointHistory: Date[] = [],
-        public createdAt: Date = new Date(),
-        public updatedAt: Date = new Date(),
-        public claimedAt: Date | null = null
+        public clientName       : string,
+        public currentPoints    : number = 0,
+        public maxPoints        : number = 10,
+        public status           : CardStatus = "incomplete",
+        public pointHistory     : Date[] = [],
+        public createdAt        : Date = new Date(),
+        public updatedAt        : Date = new Date(),
+        public claimedAt        : Date | null = null
     ) {}
 
     get isComplete(): boolean {
