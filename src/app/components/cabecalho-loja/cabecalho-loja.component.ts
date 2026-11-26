@@ -5,6 +5,7 @@ import { logOutOutline, pencil } from 'ionicons/icons';
 import { Firebase } from '../../services/firebase';
 import { LojaService } from '../../services/loja.service';
 import { SessaoService } from '../../services/sessao.service';
+import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
 /**
  * Store header displayed across seller tabs with inline store renaming and logout controls.
@@ -13,7 +14,7 @@ import { SessaoService } from '../../services/sessao.service';
     selector: 'app-cabecalho-loja',
     templateUrl: './cabecalho-loja.component.html',
     styleUrls: ['./cabecalho-loja.component.scss'],
-    imports: [IonAvatar, IonButton, IonIcon],
+    imports: [IonAvatar, IonButton, IonIcon, ThemeToggleComponent],
 })
 export class CabecalhoLojaComponent {
     private readonly firebase = inject(Firebase);

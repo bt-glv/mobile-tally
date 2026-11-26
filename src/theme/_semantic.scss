@@ -1,0 +1,101 @@
+// Tokens semânticos por tema (`--tally-*`).
+// Para adicionar um novo tema (ex.: amoled, high-contrast), adicione um bloco `html[data-theme="..."]`
+// redefinindo estas variáveis sem alterar os componentes.
+
+:root,
+html[data-theme='light'] {
+  // Superfícies
+  --tally-bg-canvas: var(--tally-neutral-0);
+  --tally-bg-surface: var(--tally-neutral-0);
+  --tally-bg-surface-subtle: var(--tally-neutral-50);
+  --tally-bg-elevated: var(--tally-neutral-0);
+  --tally-bg-splash: var(--tally-neutral-25);
+  --tally-bg-input: var(--tally-neutral-0);
+  --tally-bg-pill-scrim: rgb(255 255 255 / 78%);
+  --tally-bg-camera-placeholder: var(--tally-neutral-150);
+
+  // Tipografia
+  --tally-text-primary: var(--tally-neutral-950);
+  --tally-text-secondary: var(--tally-neutral-750);
+  --tally-text-muted: var(--tally-neutral-600);
+  --tally-text-placeholder: var(--tally-neutral-450);
+  --tally-text-brand: var(--tally-neutral-700);
+  --tally-text-inverse: var(--tally-neutral-0);
+
+  // Bordas e divisores
+  --tally-border-subtle: rgb(5 11 20 / 10%);
+  --tally-border-strong: #262626;
+  --tally-border-dashed: var(--tally-neutral-950);
+
+  // Ações
+  --tally-action-primary-bg: var(--tally-blue-500);
+  --tally-action-primary-bg-rgb: 27, 108, 252;
+  --tally-action-primary-fg: var(--tally-neutral-0);
+  --tally-action-primary-fg-rgb: 255, 255, 255;
+  --tally-action-primary-shade: var(--tally-blue-600);
+  --tally-action-primary-tint: var(--tally-blue-550);
+  --tally-action-secondary-bg: var(--tally-neutral-200);
+  --tally-action-secondary-fg: var(--tally-neutral-750);
+
+  // Componentes específicos
+  --tally-shadow-floating: var(--tally-shadow-sm);
+  --tally-stamp-inactive-opacity: 0.18;
+  --tally-qr-plate-bg: var(--tally-neutral-0);
+  --tally-qr-frame-stroke: var(--tally-neutral-950);
+  --tally-login-overlay: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, rgb(255 255 255 / 0%) 100%);
+  --tally-splash-logo-filter: none;
+}
+
+// Especificidade elevada (>= 0,2,0) para sobrescrever `.ion-palette-dark.ios` e `.ion-palette-dark.md` do Ionic.
+html.ion-palette-dark,
+html.ion-palette-dark.ios,
+html.ion-palette-dark.md,
+html[data-theme='dark'],
+html[data-theme='dark'].ios,
+html[data-theme='dark'].md {
+  // Superfícies (hierarquia em slate escuro sem preto puro #000)
+  --tally-bg-canvas: var(--tally-neutral-925);
+  --tally-bg-surface: var(--tally-neutral-900);
+  --tally-bg-surface-subtle: var(--tally-neutral-850);
+  --tally-bg-elevated: var(--tally-neutral-825);
+  --tally-bg-splash: var(--tally-neutral-925);
+  --tally-bg-input: var(--tally-neutral-875);
+  --tally-bg-pill-scrim: rgb(15 18 24 / 76%);
+  --tally-bg-camera-placeholder: #1c222e;
+
+  // Tipografia
+  --tally-text-primary: #f2f5fa;
+  --tally-text-secondary: var(--tally-neutral-300);
+  --tally-text-muted: var(--tally-neutral-400);
+  --tally-text-placeholder: var(--tally-neutral-500);
+  --tally-text-brand: #f2f5fa;
+  --tally-text-inverse: var(--tally-blue-950);
+
+  // Bordas e divisores
+  --tally-border-subtle: rgb(255 255 255 / 12%);
+  --tally-border-strong: rgb(255 255 255 / 24%);
+  --tally-border-dashed: #dce4f2;
+
+  // Ações (contraste WCAG AA >= 4.5:1 no fundo escuro e no botão preenchido)
+  --tally-action-primary-bg: var(--tally-blue-400);
+  --tally-action-primary-bg-rgb: 91, 152, 255;
+  --tally-action-primary-fg: var(--tally-blue-950);
+  --tally-action-primary-fg-rgb: 6, 16, 31;
+  --tally-action-primary-shade: var(--tally-blue-450);
+  --tally-action-primary-tint: var(--tally-blue-300);
+  --tally-action-secondary-bg: var(--tally-neutral-800);
+  --tally-action-secondary-fg: var(--tally-neutral-100);
+
+  // Componentes específicos
+  --tally-shadow-floating: var(--tally-shadow-lg);
+  --tally-stamp-inactive-opacity: 0.28;
+  --tally-qr-plate-bg: var(--tally-neutral-0);
+  --tally-qr-frame-stroke: #dce4f2;
+  --tally-login-overlay: linear-gradient(
+    180deg,
+    rgb(12 16 24 / 76%) 0%,
+    rgb(12 16 24 / 88%) 55%,
+    rgb(12 16 24 / 96%) 100%
+  );
+  --tally-splash-logo-filter: invert(0.9) hue-rotate(180deg) brightness(1.08);
+}

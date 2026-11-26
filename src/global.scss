@@ -33,8 +33,7 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-/* O layout do Figma só existe no tema claro, então o escuro fica desligado */
+@import "@ionic/angular/css/palettes/dark.class.css";
 /* @import '@ionic/angular/css/palettes/dark.system.css'; */
 
 :root {
@@ -51,10 +50,16 @@ ion-modal.cartao-popup {
   --width: min(88%, 340px);
   --height: auto;
   --border-radius: 16px;
+  --background: var(--tally-bg-elevated);
+  --box-shadow: var(--tally-shadow-floating);
 
   .ion-page {
     position: relative;
     display: block;
     contain: content;
   }
+}
+
+.ion-palette-dark ion-modal.cartao-popup::part(content) {
+  border: 1px solid var(--tally-border-subtle);
 }

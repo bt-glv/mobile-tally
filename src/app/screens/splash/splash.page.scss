@@ -8,7 +8,7 @@
 }
 
 .splash-content {
-  --background: #f8f7f4;
+  --background: var(--tally-bg-splash);
   --padding-top: 0;
   --padding-bottom: 0;
   --padding-start: 0;
@@ -52,6 +52,7 @@
   display: block;
   pointer-events: none;
   -webkit-user-drag: none;
+  filter: var(--tally-splash-logo-filter);
   animation: stampIn 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -60,7 +61,7 @@
   font-family: var(--ion-font-family);
   font-size: clamp(2rem, 8.5vw, 2.35rem);
   font-weight: 800;
-  color: #353232;
+  color: var(--tally-text-brand);
   letter-spacing: -0.04em;
   line-height: 1;
   animation: wordmarkIn 360ms cubic-bezier(0.22, 1, 0.36, 1) 170ms both;

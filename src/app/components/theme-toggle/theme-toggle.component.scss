@@ -1,0 +1,45 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-icon-btn {
+  --color: var(--tally-text-muted);
+  --border-radius: var(--tally-radius-pill);
+  --padding-start: 8px;
+  --padding-end: 8px;
+  min-width: 40px;
+  min-height: 40px;
+  margin: 0;
+  transition: transform var(--tally-duration-fast) ease, color var(--tally-duration-fast) ease;
+
+  &.overlay {
+    --color: var(--tally-text-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ion-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.theme-segment {
+  --background: var(--tally-bg-surface-subtle);
+  border: 1px solid var(--tally-border-subtle);
+  border-radius: var(--tally-radius-md);
+
+  ion-segment-button {
+    --color: var(--tally-text-muted);
+    --color-checked: var(--tally-text-primary);
+    --indicator-color: var(--tally-bg-elevated);
+    min-height: 36px;
+    font-size: 0.75rem;
+    text-transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon-btn {
+    transition: none;
+  }
+}

@@ -4,7 +4,7 @@
 }
 
 .login-vendedor-content {
-  --background: url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
+  --background: var(--tally-login-overlay), url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
   --padding-top: 0;
   --padding-bottom: 0;
   --padding-start: 0;
@@ -32,7 +32,7 @@
   margin: 0;
   font-size: 2.35rem;
   font-weight: 700;
-  color: #050b14;
+  color: var(--tally-text-primary);
   letter-spacing: -0.03em;
   text-align: center;
 }
@@ -47,24 +47,25 @@
 }
 
 .campo {
-  --background: #ffffff;
-  --color: #050b14;
-  --placeholder-color: #8a8f98;
+  --background: var(--tally-bg-input);
+  --color: var(--tally-text-primary);
+  --placeholder-color: var(--tally-text-placeholder);
   --padding-start: 12px;
   --padding-end: 12px;
   min-height: 44px;
-  border-radius: 6px;
-  background: #ffffff;
+  border: 1px solid var(--tally-border-subtle);
+  border-radius: var(--tally-radius-sm);
+  background: var(--tally-bg-input);
   font-size: 0.85rem;
 
   ion-icon {
     margin-inline-end: 10px;
-    color: #050b14;
+    color: var(--tally-text-primary);
   }
 }
 
 .esqueceu {
-  --color: #2b333e;
+  --color: var(--tally-text-secondary);
   align-self: flex-end;
   margin: -6px 0 6px;
   font-size: 0.7rem;
@@ -74,7 +75,7 @@
 
 .login-button,
 .client-button {
-  --border-radius: 9999px;
+  --border-radius: var(--tally-radius-pill);
   --box-shadow: none;
   height: 44px;
   margin: 0;
@@ -85,13 +86,13 @@
 }
 
 .login-button {
-  --background: #1b6cfc;
-  --color: #ffffff;
+  --background: var(--tally-action-primary-bg);
+  --color: var(--tally-action-primary-fg);
 }
 
 .client-button {
-  --background: #d4d7dd;
-  --color: #2b333e;
+  --background: var(--tally-action-secondary-bg);
+  --color: var(--tally-action-secondary-fg);
   width: 70%;
   align-self: center;
 
@@ -106,10 +107,10 @@
   justify-content: center;
   margin: 8px 0 0;
   font-size: 0.75rem;
-  color: #2b333e;
+  color: var(--tally-text-secondary);
 
   ion-button {
-    --color: #050b14;
+    --color: var(--tally-text-primary);
     margin: 0;
     font-size: 0.75rem;
     letter-spacing: 0;

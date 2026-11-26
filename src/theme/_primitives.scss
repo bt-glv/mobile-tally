@@ -1,0 +1,56 @@
+// Primitivos de design (escalas brutas, sem intenção semântica).
+// Não referencie primitivos diretamente nos componentes — use sempre `--tally-*` de `_semantic.scss`.
+
+:root {
+  // Neutros (claro -> escuro)
+  --tally-neutral-0: #ffffff;
+  --tally-neutral-25: #f8f7f4;
+  --tally-neutral-50: #f4f5f8;
+  --tally-neutral-100: #e5ebf5;
+  --tally-neutral-150: #d9d9d9;
+  --tally-neutral-200: #d4d7dd;
+  --tally-neutral-300: #c5cedd;
+  --tally-neutral-400: #93a0b5;
+  --tally-neutral-450: #8a8f98;
+  --tally-neutral-500: #7e8b9f;
+  --tally-neutral-600: #5c6470;
+  --tally-neutral-700: #353232;
+  --tally-neutral-750: #2b333e;
+  --tally-neutral-800: #273041;
+  --tally-neutral-825: #222a38;
+  --tally-neutral-850: #1e2533;
+  --tally-neutral-875: #1b2230;
+  --tally-neutral-900: #171c26;
+  --tally-neutral-925: #0f1218;
+  --tally-neutral-950: #050b14;
+
+  // Azul da marca
+  --tally-blue-300: #70a6ff;
+  --tally-blue-400: #5b98ff;
+  --tally-blue-450: #4c86eb;
+  --tally-blue-500: #1b6cfc;
+  --tally-blue-550: #3279fc;
+  --tally-blue-600: #185fde;
+  --tally-blue-700: #2563eb;
+  --tally-blue-950: #06101f;
+
+  // Estados
+  --tally-green-500: #2dd55b;
+  --tally-amber-500: #ffce31;
+  --tally-red-500: #f24c58;
+
+  // Raios
+  --tally-radius-sm: 6px;
+  --tally-radius-md: 12px;
+  --tally-radius-lg: 16px;
+  --tally-radius-xl: 20px;
+  --tally-radius-pill: 9999px;
+
+  // Durações de transição
+  --tally-duration-fast: 150ms;
+  --tally-duration-normal: 250ms;
+
+  // Sombras base
+  --tally-shadow-sm: 0 2px 10px rgb(0 0 0 / 22%);
+  --tally-shadow-lg: 0 6px 20px rgb(0 0 0 / 55%);
+}

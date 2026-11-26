@@ -1,11 +1,77 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+@use './primitives';
+@use './semantic';
+
+// Ponte entre tokens semânticos (`--tally-*`) e variáveis globais do Ionic.
+// Para mais informações sobre theming: https://ionicframework.com/docs/theming/
 
 :root {
-  --ion-color-primary: #1b6cfc;
-  --ion-color-primary-rgb: 27, 108, 252;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #185fde;
-  --ion-color-primary-tint: #3279fc;
+  --ion-color-primary: var(--tally-action-primary-bg);
+  --ion-color-primary-rgb: var(--tally-action-primary-bg-rgb);
+  --ion-color-primary-contrast: var(--tally-action-primary-fg);
+  --ion-color-primary-contrast-rgb: var(--tally-action-primary-fg-rgb);
+  --ion-color-primary-shade: var(--tally-action-primary-shade);
+  --ion-color-primary-tint: var(--tally-action-primary-tint);
+
+  --ion-background-color: var(--tally-bg-canvas);
+  --ion-background-color-rgb: 255, 255, 255;
+  --ion-text-color: var(--tally-text-primary);
+  --ion-text-color-rgb: 5, 11, 20;
+
+  --ion-card-background: var(--tally-bg-surface);
+  --ion-item-background: var(--tally-bg-canvas);
+  --ion-toolbar-background: var(--tally-bg-canvas);
+  --ion-tab-bar-background: var(--tally-bg-elevated);
+  --ion-border-color: var(--tally-border-subtle);
+}
+
+html.ion-palette-dark,
+html.ion-palette-dark.ios,
+html.ion-palette-dark.md,
+html[data-theme='dark'],
+html[data-theme='dark'].ios,
+html[data-theme='dark'].md {
+  --ion-color-primary: var(--tally-action-primary-bg);
+  --ion-color-primary-rgb: var(--tally-action-primary-bg-rgb);
+  --ion-color-primary-contrast: var(--tally-action-primary-fg);
+  --ion-color-primary-contrast-rgb: var(--tally-action-primary-fg-rgb);
+  --ion-color-primary-shade: var(--tally-action-primary-shade);
+  --ion-color-primary-tint: var(--tally-action-primary-tint);
+
+  --ion-color-medium: #93a0b5;
+  --ion-color-medium-rgb: 147, 160, 181;
+  --ion-color-medium-contrast: #06101f;
+  --ion-color-medium-contrast-rgb: 6, 16, 31;
+  --ion-color-medium-shade: #818d9f;
+  --ion-color-medium-tint: #9eaabc;
+
+  --ion-background-color: var(--tally-bg-canvas);
+  --ion-background-color-rgb: 15, 18, 24;
+  --ion-text-color: var(--tally-text-primary);
+  --ion-text-color-rgb: 242, 245, 250;
+
+  --ion-card-background: var(--tally-bg-surface);
+  --ion-item-background: var(--tally-bg-surface);
+  --ion-toolbar-background: var(--tally-bg-surface);
+  --ion-tab-bar-background: var(--tally-bg-elevated);
+  --ion-tab-bar-background-focused: var(--tally-bg-surface-subtle);
+  --ion-border-color: var(--tally-border-subtle);
+
+  --ion-background-color-step-100: var(--tally-bg-surface);
+  --ion-background-color-step-150: var(--tally-bg-surface-subtle);
+  --ion-background-color-step-250: var(--tally-bg-elevated);
+
+  --ion-color-step-250: #273041;
+  --ion-color-step-350: #3a4559;
+  --ion-color-step-600: #93a0b5;
+  --ion-color-step-650: #a5b1c4;
+  --ion-color-step-850: #dce4f2;
+}
+
+html.ion-palette-dark.ios ion-modal,
+html.ion-palette-dark.md ion-modal,
+html[data-theme='dark'].ios ion-modal,
+html[data-theme='dark'].md ion-modal {
+  --ion-background-color: var(--tally-bg-elevated);
+  --ion-toolbar-background: var(--tally-bg-surface);
+  --ion-toolbar-border-color: var(--tally-border-subtle);
 }

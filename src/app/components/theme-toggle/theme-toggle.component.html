@@ -1,0 +1,32 @@
+@if (variant() === 'segmented') {
+  <ion-segment
+    class="theme-segment"
+    [value]="preference()"
+    aria-label="Selecionar tema"
+    (ionChange)="onSegmentChange($event)"
+  >
+    <ion-segment-button value="system">
+      <ion-icon name="contrast-outline" aria-hidden="true"></ion-icon>
+      <ion-label>Sistema</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="light">
+      <ion-icon name="sunny-outline" aria-hidden="true"></ion-icon>
+      <ion-label>Claro</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="dark">
+      <ion-icon name="moon-outline" aria-hidden="true"></ion-icon>
+      <ion-label>Escuro</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+} @else {
+  <ion-button
+    class="theme-icon-btn"
+    [class.overlay]="surface() === 'overlay'"
+    fill="clear"
+    [attr.aria-label]="ariaLabel()"
+    [attr.title]="ariaLabel()"
+    (click)="onCycle()"
+  >
+    <ion-icon slot="icon-only" [name]="currentIcon()" aria-hidden="true"></ion-icon>
+  </ion-button>
+}
