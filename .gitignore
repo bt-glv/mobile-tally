@@ -26,6 +26,7 @@ log.txt
 # Ionic
 /.ionic
 /www
+/.sim-build
 /platforms
 /plugins
 
@@ -76,5 +77,6 @@ testem.log
 Thumbs.db
 
 
-# iOS stuff
+# Native Capacitor platforms
 /ios
+/android

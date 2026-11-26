@@ -3,6 +3,3 @@
 > FRONTEND
 
 App gerenciador de cartões de fidelidade virtuais.
-
-
-
