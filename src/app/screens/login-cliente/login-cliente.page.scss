@@ -4,7 +4,7 @@
 }
 
 .login-cliente-content {
-  --background: url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
+  --background: var(--tally-login-overlay), url('/assets/images/login-cliente-background.png') no-repeat center top / cover;
   --padding-top: 0;
   --padding-bottom: 0;
   --padding-start: 0;
@@ -34,7 +34,7 @@
   font-family: var(--ion-font-family);
   font-size: 2.35rem;
   font-weight: 700;
-  color: #050b14;
+  color: var(--tally-text-primary);
   letter-spacing: -0.03em;
   text-align: center;
 }
@@ -49,9 +49,9 @@
 }
 
 .google-button {
-  --background: #1b6cfc;
-  --color: #ffffff;
-  --border-radius: 9999px;
+  --background: var(--tally-action-primary-bg);
+  --color: var(--tally-action-primary-fg);
+  --border-radius: var(--tally-radius-pill);
   --box-shadow: none;
   height: 48px;
   font-size: 0.95rem;
@@ -66,9 +66,9 @@
 }
 
 .seller-button {
-  --background: #d4d7dd;
-  --color: #2b333e;
-  --border-radius: 9999px;
+  --background: var(--tally-action-secondary-bg);
+  --color: var(--tally-action-secondary-fg);
+  --border-radius: var(--tally-radius-pill);
   --box-shadow: none;
   height: 48px;
   font-size: 0.95rem;
@@ -79,6 +79,6 @@
   ion-icon {
     font-size: 1.3rem;
     margin-inline-end: 8px;
-    color: #2b333e;
+    color: var(--tally-action-secondary-fg);
   }
 }

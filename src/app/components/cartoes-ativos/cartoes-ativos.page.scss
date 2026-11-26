@@ -16,11 +16,15 @@ ion-item p {
 }
 
 ion-footer {
-  background: var(--ion-background-color, #fff);
+  background: var(--tally-bg-canvas);
+  border-top: 1px solid var(--tally-border-subtle);
 }
 
 ion-searchbar {
   --box-shadow: none;
-  --background: var(--ion-background-color, #fff);
+  --background: var(--tally-bg-surface-subtle);
+  --color: var(--tally-text-primary);
+  --placeholder-color: var(--tally-text-placeholder);
+  --icon-color: var(--tally-text-muted);
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
 }

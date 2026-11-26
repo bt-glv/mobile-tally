@@ -12,6 +12,7 @@ import { SessaoService } from '../../../services/sessao.service';
 import { PontosGridComponent } from '../../../components/pontos-grid/pontos-grid.component';
 import { QrMolduraComponent } from '../../../components/qr-moldura/qr-moldura.component';
 import { CartaoPopupComponent } from '../../../components/cartao-popup/cartao-popup.component';
+import { ThemeToggleComponent } from '../../../components/theme-toggle/theme-toggle.component';
 
 /**
  * Customer home page displaying the customer's rotating identification QR code and loyalty cards.
@@ -20,7 +21,17 @@ import { CartaoPopupComponent } from '../../../components/cartao-popup/cartao-po
     selector: 'app-cliente-menu',
     templateUrl: './cliente-menu.page.html',
     styleUrls: ['./cliente-menu.page.scss'],
-    imports: [IonContent, IonCard, IonCardContent, IonThumbnail, IonButton, IonIcon, QrMolduraComponent, PontosGridComponent],
+    imports: [
+        IonContent,
+        IonCard,
+        IonCardContent,
+        IonThumbnail,
+        IonButton,
+        IonIcon,
+        QrMolduraComponent,
+        PontosGridComponent,
+        ThemeToggleComponent,
+    ],
 })
 export class ClienteMenuPage implements OnInit {
     private readonly sessao        = inject(SessaoService);

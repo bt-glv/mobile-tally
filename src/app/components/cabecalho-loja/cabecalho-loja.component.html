@@ -1,9 +1,12 @@
 @if (loja(); as loja) {
   <header>
     <div class="banner" [style.background-image]="'url(' + loja.banner + ')'">
-      <ion-button fill="clear" color="dark" aria-label="Sair" (click)="sair()">
-        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
-      </ion-button>
+      <div class="banner-acoes">
+        <app-theme-toggle surface="overlay"></app-theme-toggle>
+        <ion-button class="acao-sair" fill="clear" aria-label="Sair" (click)="sair()">
+          <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+        </ion-button>
+      </div>
     </div>
 
     <div class="identidade">

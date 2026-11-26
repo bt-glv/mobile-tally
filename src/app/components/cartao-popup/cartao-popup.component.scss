@@ -2,9 +2,12 @@
   position: relative;
   padding: 36px 24px 28px;
   text-align: center;
+  background: var(--tally-bg-elevated);
+  color: var(--tally-text-primary);
 }
 
 .fechar {
+  --color: var(--tally-text-primary);
   position: absolute;
   top: 4px;
   right: 4px;
@@ -25,7 +28,7 @@
 .contagem {
   margin: 0 0 18px;
   font-size: 0.75rem;
-  color: var(--ion-color-medium);
+  color: var(--tally-text-muted);
 }
 
 app-qr-moldura {

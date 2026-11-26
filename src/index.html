@@ -7,7 +7,25 @@
 
   <base href="/" />
 
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem('tally:tema');
+        var dark = pref === 'dark' || (pref !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var theme = dark ? 'dark' : 'light';
+        var root = document.documentElement;
+        root.classList.toggle('ion-palette-dark', dark);
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute('content', dark ? '#0f1218' : '#ffffff');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />

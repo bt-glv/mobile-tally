@@ -17,9 +17,9 @@
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
-  background: var(--ion-color-step-250, #d9d9d9);
-  border: 1px solid var(--ion-color-step-350, #bbb);
-  border-radius: 20px;
+  background: var(--tally-bg-camera-placeholder);
+  border: 1px solid var(--tally-border-subtle);
+  border-radius: var(--tally-radius-xl);
 
   video {
     width: 100%;
@@ -32,8 +32,8 @@
 .mira {
   position: absolute;
   inset: 22%;
-  border: 3px dashed #000;
-  border-radius: 20px;
+  border: 3px dashed var(--tally-border-dashed);
+  border-radius: var(--tally-radius-xl);
   pointer-events: none;
 }
 
@@ -45,8 +45,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--ion-color-step-250, #d9d9d9);
-  color: var(--ion-color-step-650, #555);
+  background: var(--tally-bg-camera-placeholder);
+  color: var(--tally-text-muted);
 
   ion-icon {
     font-size: 2.5rem;

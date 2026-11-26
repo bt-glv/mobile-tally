@@ -5,6 +5,8 @@
 .topo {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
   padding-top: env(safe-area-inset-top, 0px);
   min-height: 48px;
 }
@@ -19,8 +21,12 @@
   letter-spacing: 0.12em;
 }
 
+ion-card {
+  border: 1px solid var(--tally-border-subtle);
+}
+
 ion-card-content {
-  color: var(--ion-text-color);
+  color: var(--tally-text-primary);
 }
 
 .card-qr ion-card-content {
@@ -58,6 +64,6 @@ ion-card-content {
 
   span {
     font-size: 0.75rem;
-    color: var(--ion-color-medium);
+    color: var(--tally-text-muted);
   }
 }
