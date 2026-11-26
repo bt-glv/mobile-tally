@@ -4,8 +4,12 @@ import { clienteGuard, vendedorGuard } from './routing/guards/sessao.guard';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'login-cliente',
+        redirectTo: 'splash',
         pathMatch: 'full',
+    },
+    {
+        path: 'splash',
+        loadComponent: () => import('./screens/splash/splash.page').then((m) => m.SplashPage),
     },
     {
         path: 'login-cliente',
